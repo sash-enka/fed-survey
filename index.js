@@ -2,6 +2,8 @@ var coreFrontendData, advancedFrontendData, cssData, frameworksLibrariesData, te
 var x, y;
 var xAxis;
 
+var header = document.querySelector("h2")
+
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
     width = 500 - margin.left - margin.right,
@@ -73,30 +75,39 @@ function update(currData) {
 
 // onClick functions
 function showCoreFrontend() {
+    header.innerText = "Core Frontend"
     update(coreFrontendData);
 }
 function showAdvancedFrontend() {
+    header.innerText = "Advanced Frontend"
     update(advancedFrontendData);
 }
 function showCSS() {
+    header.innerText = "CSS"
     update(cssData)
 }
 function showFrameworksLibraries() {
+    header.innerText = "JS Frameworks and Libraries"
     update(frameworksLibrariesData)
 }
 function showTesting() {
+    header.innerText = "Testing"
     update(testingData)
 }
 function showBuildTools() {
+    header.innerText = "Build Tools"
     update(buildToolsData)
 }
 function showDataIntegration() {
+    header.innerText = "Data and Integration"
     update(dataIntegrationData)
 }
 function showCMS() {
+    header.innerText = "CMS"
     update(cmsData)
 }
 function showOther() {
+    header.innerText = "Other"
     update(otherData)
 }
 

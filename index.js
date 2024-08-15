@@ -4,14 +4,14 @@ var xAxis;
 
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", 600)
     .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -20,7 +20,6 @@ var svg = d3.select("#my_dataviz")
 d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv").then(data => {
     // split data into topics 
     coreFrontendData = data.slice(0, 5);
-    console.log(coreFrontendData)
     advancedFrontendData = data.slice(5, 10);
     cssData = data.slice(10, 15);
     frameworksLibrariesData = data.slice(15, 20);
@@ -53,7 +52,10 @@ d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv
 
 function update(currData) {
     x.domain(currData.map(function(d) { return d.subtopicClean; }))
-    xAxis.call(d3.axisBottom(x))
+    xAxis.call(d3.axisBottom(x)).selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end")
+    .style("font-size", "1.25em");
     
     // Update the chart with new data
     var u = svg.selectAll("rect")
@@ -69,6 +71,7 @@ function update(currData) {
     .attr("fill", "#69b3a2");
 }
 
+// onClick functions
 function showCoreFrontend() {
     update(coreFrontendData);
 }

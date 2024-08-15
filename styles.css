@@ -1,0 +1,18 @@
+body {
+    width: 500px;
+    padding: 20px;
+}
+
+button {
+    background-color: rgba(84, 168, 141, 0.238);
+    padding: 8px;
+    border: 1px black solid;
+    border-radius: 4px
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-left: 30px;
+}

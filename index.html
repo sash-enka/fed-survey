@@ -6,19 +6,21 @@
     <script src="https://d3js.org/d3.v6.js"></script>
 </head>
 <body>
-    <!-- TODO: style these -->
-    <button onclick="showCoreFrontend()">Core Frontend</button>
-    <button onclick="showAdvancedFrontend()">Advanced Frontend</button>
-    <button onclick="showCSS()">CSS</button>
-    <button onclick="showFrameworksLibraries()">Frameworks and Libraries</button>
-    <button onclick="showTesting()">Testing </button>
-    <button onclick="showBuildTools()">Build Tools</button>
-    <button onclick="showDataIntegration()">Data and Integration</button>
-    <button onclick="showCMS()">CMS</button>
-    <button onclick="showOther()">Other</button>
+    <div class="button-container">
+        <button onclick="showCoreFrontend()">Core Frontend</button>
+        <button onclick="showAdvancedFrontend()">Advanced Frontend</button>
+        <button onclick="showCSS()">CSS</button>
+        <button onclick="showFrameworksLibraries()">Frameworks and Libraries</button>
+        <button onclick="showTesting()">Testing </button>
+        <button onclick="showBuildTools()">Build Tools</button>
+        <button onclick="showDataIntegration()">Data and Integration</button>
+        <button onclick="showCMS()">CMS</button>
+        <button onclick="showOther()">Other</button>
+    </div>
 
     <!-- D3 graph sits below -->
     <div id="my_dataviz"></div>
     <script src="index.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </body>
 </html>

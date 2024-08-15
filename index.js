@@ -20,6 +20,7 @@ var svg = d3.select("#my_dataviz")
 d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv").then(data => {
     // split data into topics 
     coreFrontendData = data.slice(0, 5);
+    console.log(coreFrontendData)
     advancedFrontendData = data.slice(5, 10);
     cssData = data.slice(10, 15);
     frameworksLibrariesData = data.slice(15, 20);
@@ -32,7 +33,7 @@ d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv
     // Add x axis - 
     x = d3.scaleBand()
     .range([0, width])
-    .domain(coreFrontendData.map(d => d.Option))
+    .domain(coreFrontendData.map(d => d.subtopicClean))
     .padding(0.2);
     xAxis = svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -51,7 +52,7 @@ d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv
 });
 
 function update(currData) {
-    x.domain(currData.map(function(d) { return d.Option; }))
+    x.domain(currData.map(function(d) { return d.subtopicClean; }))
     xAxis.call(d3.axisBottom(x))
     
     // Update the chart with new data
@@ -61,10 +62,10 @@ function update(currData) {
     u.join("rect")
     .transition()
     .duration(1000)
-    .attr("x", d => x(d.Option))
-    .attr("y", d => y(d.Value))
+    .attr("x", d => x(d.subtopicClean))
+    .attr("y", d => y(d.average))
     .attr("width", x.bandwidth())
-    .attr("height", d => height - y(d.Value))
+    .attr("height", d => height - y(d.average))
     .attr("fill", "#69b3a2");
 }
 

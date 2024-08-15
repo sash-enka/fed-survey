@@ -1,4 +1,4 @@
-topic,subtopic,subtopic-clean,average
+topic,subtopic,subtopicClean,average
 Core Frontend.Semantic HTML,Semantic HTML,Semantic HTML,4
 Core Frontend.CSS,CSS,CSS,3.9
 Core Frontend.JavaScript,JavaScript,JavaScript,4.033333333
@@ -6,7 +6,7 @@ Core Frontend.TypeScript,TypeScript,TypeScript,3.7
 Core Frontend.Git,Git,Git,3.7
 Advanced Frontend.  Accessibility,Accessibility,Accessibility,2.766666667
 Advanced Frontend.Responsive UI,Responsive UI,Responsive UI,3.5
-"Advanced Frontend.Data structures - Arrays, objects, stacks, queues etc ","Data structures - Arrays, objects, stacks, queues etc ",Data structures,3.466666667
+"Advanced Frontend.Data structures - Arrays, objects, stacks, queues etcï¿½","Data structures - Arrays, objects, stacks, queues etcï¿½",Data structures,3.466666667
 "Advanced Frontend.Algorithms - Sorting, searching, graph algorithms etc","Algorithms - Sorting, searching, graph algorithms etc",Algorithms,2.9
 Advanced Frontend.State Management,State Management,State Management,3.166666667
 CSS.  SASS,SASS,SASS,3.166666667
@@ -23,11 +23,11 @@ Testing.  Jest,Jest,Jest,2.966666667
 Testing.React Testing Library,React Testing Library,React Testing Library,2.633333333
 Testing.Cross-browser testing (eg. Browserstack),Cross-browser testing (eg. Browserstack),Cross-browser testing,2.233333333
 Testing.End to end testing (eg. Cypress),End to end testing (eg. Cypress),End to end testing,1.833333333
-Build tools .  Webpack,Webpack,Webpack,2.533333333
-Build tools .Rollup,Rollup,Rollup,1.566666667
-Build tools .Esbuild,Esbuild,Esbuild,1.6
-Build tools .Web assembly,Web assembly,Web assembly,1.3
-Build tools .Bun,Bun,Bun,1.233333333
+Build toolsï¿½.  Webpack,Webpack,Webpack,2.533333333
+Build toolsï¿½.Rollup,Rollup,Rollup,1.566666667
+Build toolsï¿½.Esbuild,Esbuild,Esbuild,1.6
+Build toolsï¿½.Web assembly,Web assembly,Web assembly,1.3
+Build toolsï¿½.Bun,Bun,Bun,1.233333333
 Data and Integration.  GraphQL,GraphQL,GraphQL,2.933333333
 Data and Integration.Apollo,Apollo,Apollo,2.6
 Data and Integration.Rest API,Rest API,Rest API,3.233333333
@@ -59,7 +59,7 @@ CMS.DatoCMS,DatoCMS,DatoCMS,1.433333333
 .Architecture -Monorepo, Mico FEs, PWAs, i18n, l10n","Architecture -Monorepo, Mico FEs, PWAs, i18n, l10n",Architecture,2.233333333
 "Other
 
-.FE methods -  prefetching, lazy load, resumability","FE methods -  prefetching, lazy load, resumability",FE methods,2.433333333
+.FE methods -ï¿½ prefetching, lazy load, resumability","FE methods -ï¿½ prefetching, lazy load, resumability",FE methods,2.433333333
 "Other
 
 .Monitoring and Error logging - AppInsights, Dynatrace etc","Monitoring and Error logging - AppInsights, Dynatrace etc",Monitoring and Error logging,2.033333333

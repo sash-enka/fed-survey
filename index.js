@@ -1,12 +1,12 @@
 var coreFrontendData, advancedFrontendData, cssData, frameworksLibrariesData, testingData, buildToolsData, dataIntegrationData, cmsData, otherData
 var x, y;
-var xAxis;
+var xAxis, yAxis;
 
 var header = document.querySelector("h2")
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 500 - margin.left - margin.right,
+var margin = {top: 30, right: 30, bottom: 70, left: 170},
+    width = 500,
     height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -20,6 +20,7 @@ var svg = d3.select("#my_dataviz")
 
 // get all survey data 
 d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv").then(data => {
+    
     // split data into topics 
     coreFrontendData = data.slice(0, 5);
     advancedFrontendData = data.slice(5, 10);
@@ -32,32 +33,31 @@ d3.csv("https://raw.githubusercontent.com/sash-enka/fed-survey/main/averages.csv
     otherData = data.slice(37, 46);
 
     // Add x axis - 
-    x = d3.scaleBand()
-    .range([0, width])
-    .domain(coreFrontendData.map(d => d.subtopicClean))
-    .padding(0.2);
+    x = d3.scaleLinear()
+    .domain([0,5])
+    .range([0, width]);
+
     xAxis = svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    // .call(d3.axisBottom(x))
+    .call(d3.axisBottom(x));
 
     // Add Y axis
-    y = d3.scaleLinear()
-    .domain([0, 5])
-    .range([height, 0])
-    svg.append("g")
+    y = d3.scaleBand()
+    .range([0, height])
+    .domain(coreFrontendData.map(d => d.subtopicClean))
+    .padding(.1)
+
+    yAxis = svg.append("g")
     .attr("class", "myYaxis")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y))
 
     // Initialize with coreFrontendData
     update(coreFrontendData);
 });
 
 function update(currData) {
-    x.domain(currData.map(function(d) { return d.subtopicClean; }))
-    xAxis.call(d3.axisBottom(x)).selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end")
-    .style("font-size", "1.25em");
+    y.domain(currData.map(function(d) { return d.subtopicClean; }))
+    yAxis.call(d3.axisLeft(y)).selectAll("text")
     
     // Update the chart with new data
     var u = svg.selectAll("rect")
@@ -66,11 +66,11 @@ function update(currData) {
     u.join("rect")
     .transition()
     .duration(1000)
-    .attr("x", d => x(d.subtopicClean))
-    .attr("y", d => y(d.average))
-    .attr("width", x.bandwidth())
-    .attr("height", d => height - y(d.average))
-    .attr("fill", "#69b3a2");
+    .attr("x", x(0) )
+    .attr("y", d => y(d.subtopicClean))
+    .attr("width", d => x(d.average))
+    .attr("height", y.bandwidth())
+    .attr("fill", "#69b3a2")
 }
 
 // onClick functions
